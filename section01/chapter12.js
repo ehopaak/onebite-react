@@ -21,3 +21,10 @@ let varC = (value) => {
 };
 
 console.log(varC(5));
+
+//위의 화살표 함수와 같은 표현
+let varD = function (num) {
+  return num + 1;
+};
+
+console.log(varD(5));

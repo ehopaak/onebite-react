@@ -85,26 +85,82 @@
 
 // Quiz1. 책 정보 확인하기
 
-const book1 = {
-  title: "한 입 크기로 잘라먹는 리액트",
-  author: "이정환",
-};
+// const book1 = {
+//   title: "한 입 크기로 잘라먹는 리액트",
+//   author: "이정환",
+// };
 
-if ("publishedYear" in book1) {
-  console.log(`출판년도는 ${publishedYear}입니다.`);
-} else {
-  console.log("출판년도 정보가 없습니다.");
+// if ("publishedYear" in book1) {
+//   console.log(`출판년도는 ${publishedYear}입니다.`);
+// } else {
+//   console.log("출판년도 정보가 없습니다.");
+// }
+
+// //다른표현
+// const book2 = {
+//   title: "한 입 크기로 잘라먹는 리액트",
+//   author: "이정환",
+// };
+
+// const result = book2.publishedYear;
+// if (result) {
+//   console.log(result || `출판년도는 ${publishedYear}입니다.`);
+// } else {
+//   console.log("출판년도 정보가 없습니다.");
+// }
+
+// Quiz1. 영화 리뷰 정보 출력하기
+function printMovieReview({ title, releaseYear, reviewers }) {
+  console.log(`제목 : ${title}`);
+  console.log(`개봉 : ${releaseYear}`);
+  if (reviewers.length !== 0) {
+    console.log(`첫 번째 리뷰어 : ${reviewers[0]}`);
+  } else {
+    console.log("첫 번째 리뷰어 : 리뷰어 미정");
+  }
+
+  //   const [fistReviewer = "리뷰어 미정"] = reviewers;
+  //   console.log(`첫 번째 리뷰어 : ${fistReviewer}`);
 }
 
-//다른표현
-const book2 = {
-  title: "한 입 크기로 잘라먹는 리액트",
-  author: "이정환",
-};
+printMovieReview({
+  title: "오펜하이머",
+  releaseYear: 2023,
+  reviewers: ["이정환", "김효빈", "김고은"],
+});
 
-const result = book2.publishedYear;
-if (result) {
-  console.log(result || `출판년도는 ${publishedYear}입니다.`);
-} else {
-  console.log("출판년도 정보가 없습니다.");
+printMovieReview({
+  title: "웡카",
+  releaseYear: 2024,
+  reviewers: [],
+});
+
+// 출력 결과 :
+// 제목 : 오펜하이머
+// 개봉 : 2023
+// 첫 번째 리뷰어 : 이정환
+
+// Quiz2. 평균 성적 출력하기
+function printAvgScore(students) {
+  for (let name in students) {
+    let sum = 0;
+    const { scores } = students[name];
+
+    for (let score of scores) {
+      sum += score;
+    }
+    const avg = sum / scores.length;
+    console.log(`${name}: ${avg}`);
+  }
 }
+
+printAvgScore({
+  이정환: { hobby: "테니스", scores: [10, 20, 30, 40, 50] },
+  김효빈: { hobby: "테니스", scores: [90, 80, 30, 70, 50] },
+  홍길동: { hobby: "의적", scores: [100, 100, 20, 20, 50] },
+});
+
+// 출력 결과 :
+// 이정환: 30
+// 김효빈: 64
+// 홍길동: 58
