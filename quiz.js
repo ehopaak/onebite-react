@@ -166,108 +166,171 @@
 // // 홍길동: 58
 
 // Quiz1. 배열 분할 및 결합하기
-function splitAndCombine(arr) {
-  let arr1 = arr.slice(4);
-  console.log(arr1);
-  let arr2 = arr.slice(0, 4);
-  console.log(arr2);
-  return arr2.concat(arr1);
-}
+// function splitAndCombine(arr) {
+//   let arr1 = arr.slice(4);
+//   console.log(arr1);
+//   let arr2 = arr.slice(0, 4);
+//   console.log(arr2);
+//   return arr2.concat(arr1);
+// }
 
-let arr = [0, 1, 2, 3, 4, 5, 6, 7];
-const result = splitAndCombine(arr);
-console.log(result);
+// let arr = [0, 1, 2, 3, 4, 5, 6, 7];
+// const result = splitAndCombine(arr);
+// console.log(result);
 
-// 출력 결과 :
-// [4,5,6,7,0,1,2,3]
+// // 출력 결과 :
+// // [4,5,6,7,0,1,2,3]
 
-// Quiz2. 클릭 이벤트 로그 처리하기
-function printClickEventLogs(logs) {
-  let date = new Date();
+// // Quiz2. 클릭 이벤트 로그 처리하기
+// function printClickEventLogs(logs) {
+//   let date = new Date();
 
-  logs.forEach((logs) => {
-    if (logs.type === "click") {
-      console.log(`${logs.type}:: ${new Date(logs.date).toLocaleString()}`);
-    }
-  });
-}
+//   logs.forEach((logs) => {
+//     if (logs.type === "click") {
+//       console.log(`${logs.type}:: ${new Date(logs.date).toLocaleString()}`);
+//     }
+//   });
+// }
 
-printClickEventLogs([
-  {
-    type: "click",
-    date: "2023-01-01T12:00:00Z",
-  },
-  {
-    type: "hover",
-    date: "2023-01-01T12:10:00Z",
-  },
-  {
-    type: "scroll",
-    date: "2023-01-01T12:15:00Z",
-  },
-  {
-    type: "click",
-    date: "2023-01-01T12:20:00Z",
-  },
-]);
+// printClickEventLogs([
+//   {
+//     type: "click",
+//     date: "2023-01-01T12:00:00Z",
+//   },
+//   {
+//     type: "hover",
+//     date: "2023-01-01T12:10:00Z",
+//   },
+//   {
+//     type: "scroll",
+//     date: "2023-01-01T12:15:00Z",
+//   },
+//   {
+//     type: "click",
+//     date: "2023-01-01T12:20:00Z",
+//   },
+// ]);
 
-// 출력 결과
-// click :: 2023. 1. 1. 오후 9:00:00
-// click :: 2023. 1. 1. 오후 9:20:00
+// // 출력 결과
+// // click :: 2023. 1. 1. 오후 9:00:00
+// // click :: 2023. 1. 1. 오후 9:20:00
 
-// Quiz3. 카페 할인 이벤트
-function getDiscountedMenus(menus) {
-  menus.forEach((menus) => {
-    menus.discountedPrice = menus.price - 500;
-  });
-  return menus;
-}
+// // Quiz3. 카페 할인 이벤트
+// function getDiscountedMenus(menus) {
+//   menus.forEach((menus) => {
+//     menus.discountedPrice = menus.price - 500;
+//   });
+//   return menus;
+// }
 
-const discountedMenus = getDiscountedMenus([
-  { itemId: 1, name: "아메리카노", price: 3000 },
-  { itemId: 2, name: "라떼", price: 3500 },
-  { itemId: 3, name: "초콜릿 케이크", price: 5000 },
-  { itemId: 4, name: "크로와상", price: 2800 },
-]);
+// const discountedMenus = getDiscountedMenus([
+//   { itemId: 1, name: "아메리카노", price: 3000 },
+//   { itemId: 2, name: "라떼", price: 3500 },
+//   { itemId: 3, name: "초콜릿 케이크", price: 5000 },
+//   { itemId: 4, name: "크로와상", price: 2800 },
+// ]);
 
-console.log(discountedMenus);
-// 출력 결과 :
-// { itemId: 1, name: '아메리카노', price: 3000, discountedPrice: 2500 },
-// { itemId: 2, name: '라떼', price: 3500, discountedPrice: 3000 },
-// { itemId: 3, name: '초콜릿 케이크', price: 5000, discountedPrice: 4500 },
-// { itemId: 4, name: '크로와상', price: 2800, discountedPrice: 2300 }
+// console.log(discountedMenus);
+// // 출력 결과 :
+// // { itemId: 1, name: '아메리카노', price: 3000, discountedPrice: 2500 },
+// // { itemId: 2, name: '라떼', price: 3500, discountedPrice: 3000 },
+// // { itemId: 3, name: '초콜릿 케이크', price: 5000, discountedPrice: 4500 },
+// // { itemId: 4, name: '크로와상', price: 2800, discountedPrice: 2300 }
 
-// Quiz4. 도서 정리하기
-function getSortedBooks(books) {
-  return books.sort((a, b) => {
-    const aTime = a.published.getTime();
-    const bTime = b.published.getTime();
-    return bTime - aTime;
-  });
-}
+// // Quiz4. 도서 정리하기
+// function getSortedBooks(books) {
+//   return books.sort((a, b) => {
+//     const aTime = a.published.getTime();
+//     const bTime = b.published.getTime();
+//     return bTime - aTime;
+//   });
+// }
 
-const sortedBooks = getSortedBooks([
-  {
-    title: "한입 리액트",
-    published: new Date("2023. 04. 06"),
-  },
-  {
-    title: "웹 프론트엔드 첫 걸음",
-    published: new Date("2024. 04. 30"),
-  },
-  {
-    title: "이펙티브 타입스크립트",
-    published: new Date("2021. 06. 27"),
-  },
-  {
-    title: "클린코드",
-    published: new Date("2013. 12. 24"),
-  },
-]);
+// const sortedBooks = getSortedBooks([
+//   {
+//     title: "한입 리액트",
+//     published: new Date("2023. 04. 06"),
+//   },
+//   {
+//     title: "웹 프론트엔드 첫 걸음",
+//     published: new Date("2024. 04. 30"),
+//   },
+//   {
+//     title: "이펙티브 타입스크립트",
+//     published: new Date("2021. 06. 27"),
+//   },
+//   {
+//     title: "클린코드",
+//     published: new Date("2013. 12. 24"),
+//   },
+// ]);
 
-console.log(sortedBooks);
+// console.log(sortedBooks);
 // 출력 결과 :
 // { title: '웹 프론트엔드 첫 걸음', published: 2024-04-29T15:00:00.000Z},
 // { title: '한입 리액트', published: 2023-04-05T15:00:00.000Z },
 // { title: '이펙티브 타입스크립트', published: 2021-06-26T15:00:00.000Z},
 // { title: '클린코드', published: 2013-12-23T15:00:00.000Z }
+
+// Quiz1.우승자는? 광고 시청하고 오시겠습니다!
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
+
+async function main() {
+  console.log("3초 후 결과를 공개하겠습니다!");
+  await delay(3000);
+  console.log("승자는 이정환!");
+}
+
+// main();
+// 출력 결과 :
+// 3초 후 결과를 공개하겠습니다!
+// 승자는 이정환!
+
+// Quiz2.주문 접수 -> 처리 -> 취소 하기
+/* 1. 주문하는 기능 (수정 X) */
+function receiveOrder() {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      console.log("주문 접수가 완료되었습니다.");
+      resolve("주문번호: 123");
+    }, 2000)
+  );
+}
+
+/* 2. 주문을 처리하는 기능 (수정 X) */
+function processOrder(orderId) {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      console.log(`[${orderId}] 주문이 처리 되었습니다.`);
+      resolve(orderId);
+    }, 2000)
+  );
+}
+
+/* 3. 주문을 취소하는 기능 (수정 X) */
+function cancelOrder(orderId) {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      console.log(`[${orderId}] 주문이 취소되었습니다`);
+      resolve();
+    }, 1500)
+  );
+}
+
+// 여기에 코드를 작성하세요
+receiveOrder()
+  .then((orderId) => processOrder(orderId))
+  .then((orderId) => cancelOrder(orderId))
+  .catch((error) => console.log(error));
+
+// 출력 결과 :
+// 주문 접수가 완료되었습니다.
+// [주문번호: 123] 주문이 처리 되었습니다.
+// [주문번호: 123] 주문이 취소되었습니다
