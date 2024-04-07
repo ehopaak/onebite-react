@@ -16,23 +16,52 @@ import "./App.css";
 //     </header>
 //   );
 // };
-import Button from "./components/Button";
+// import Button from "./components/Button";
 
+import { useState } from "react";
 function App() {
-  const buttonProps = {
-    text: "메일",
-    color: "red",
-    a: 1,
-    b: 2,
-    c: 3,
-  };
+  // const buttonProps = {
+  //   text: "메일",
+  //   color: "red",
+  //   a: 1,
+  //   b: 2,
+  //   c: 3,
+  // };
+
+  const [count, setCount] = useState(0);
+  const [light, setLight] = useState("OFF");
   return (
     <>
-      <Button {...buttonProps} />
+      {/* <Button {...buttonProps} />
       <Button text={"카페"} />
       <Button text={"블로그"}>
         <div>자식요소</div>
-      </Button>
+      </Button> */}
+      <div>
+        <h1>{light}</h1>
+        <button
+          onClick={() => {
+            if (light === "OFF") {
+              setLight("ON");
+            } else {
+              setLight("OFF");
+            }
+          }}
+        >
+          전구 끄기 / 켜기
+        </button>
+      </div>
+      <div>
+        <h1>{count}</h1>
+        <button
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
     </>
   );
 }
