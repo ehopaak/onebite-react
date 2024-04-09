@@ -13,11 +13,11 @@ function App() {
       setInput({
         krw: value,
         // 4월 9일 달러환율 기준
-        usd: value / 1354.84,
+        usd: value / 1355.27,
       });
     } else {
       setInput({
-        krw: value * 1354.84,
+        krw: value * 1355.27,
         // 4월 9일 달러환율 기준
         usd: value,
       });
