@@ -1,23 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const OrderEditor = () => {
-  const [menu, setMenu] = useState("");
-  const [address, setAddress] = useState("");
-  const [request, setRequest] = useState("");
+  const [input, setInput] = useState({
+    menu: "",
+    address: "",
+    request: "",
+  });
 
-  const onChangeMenu = (e) => {
-    setMenu(e.target.value);
-  };
-  const onChangeAddress = (e) => {
-    setAddress(e.target.value);
-  };
-  const onChangeRequest = (e) => {
-    setRequest(e.target.value);
+  const inputRef = useRef();
+
+  const onChange = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const onSubmit = () => {
+    if (input.name === "") {
+      inputRef.current.focus();
+    }
     alert(
-      `주문이 완료되었습니다. 메뉴 : ${menu}, 주소 : ${address}, 요청사항 : ${request}`
+      `주문이 완료되었습니다. 메뉴 : ${input.menu}, 주소 : ${input.address}, 요청사항 : ${input.request}`
     );
   };
 
@@ -27,8 +31,10 @@ const OrderEditor = () => {
       <div>
         <div style={{ marginBottom: 5, fontSize: 14 }}>메뉴 선택</div>
         <select
-          value={menu}
-          onChange={onChangeMenu}
+          ref={inputRef}
+          name="menu"
+          value={input.menu}
+          onChange={onChange}
           style={{ width: 300, padding: 5 }}
         >
           <option value={"족발"}>족발</option>
@@ -40,8 +46,10 @@ const OrderEditor = () => {
       <div>
         <div style={{ marginBottom: 5, fontSize: 14 }}>배달 주소</div>
         <input
-          value={address}
-          onChange={onChangeAddress}
+          ref={inputRef}
+          name="address"
+          value={input.address}
+          onChange={onChange}
           style={{ width: 300, padding: 5 }}
           placeholder="주소) 서울특별시 xx동 .."
         />
@@ -49,8 +57,10 @@ const OrderEditor = () => {
       <div>
         <div style={{ marginBottom: 5, fontSize: 14 }}>배달 요청사항</div>
         <textarea
-          value={request}
-          onChange={onChangeRequest}
+          ref={inputRef}
+          name="request"
+          value={input.request}
+          onChange={onChange}
           style={{ width: 300, padding: 5 }}
           placeholder="배달 요청사항을 써 주세요..."
         />
