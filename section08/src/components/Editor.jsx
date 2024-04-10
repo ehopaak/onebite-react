@@ -20,6 +20,7 @@ const Editor = ({ onCreate }) => {
       contentRef.current.focus();
       return;
     }
+
     onCreate(content);
     setContent("");
   };
